@@ -23,11 +23,10 @@ const deleteRegister = (id) => {
     if (registers[i].id == id) {
       console.log(`register ${registers[i].id} deleted.`);
       registers.splice(i, 1);
+      return;
     }
   }
-
   console.log(`id ${id} not found in registers`);
-  return null;
 }
 
 // Funzione per aggiornare un registro
