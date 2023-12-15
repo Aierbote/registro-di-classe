@@ -12,6 +12,14 @@ const getRegisterList = () => {
   return registers;
 };
 
+// Funzione per ottenere uno specifico registro
+const getRegister = (id) => {
+  for (let i = 0; i < registers.length; i++){
+    if (registers[i].id === id) { return registers[i] };  
+  } 
+  return null; 
+}
+
 // Funzione per creare un registro
 const createRegister = (name) => {
   // Implementa la logica per creare un registro
