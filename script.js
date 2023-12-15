@@ -18,9 +18,14 @@ const createRegister = (name) => {
 };
 
 // Funzione per eliminare un registro
-const deleteRegister = () => {
-  // Implementa la logica per eliminare un registro
-};
+const deleteRegister = (id) => {
+  for (let i = 0; i < registers.length; i++) {
+    if (registers[i].id == id) {
+      console.log(`register ${registers[i].id} deleted.`);
+      registers.splice(i, 1);
+    }
+  }
+}
 
 // Funzione per aggiornare un registro
 const updateRegister = () => {
