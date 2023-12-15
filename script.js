@@ -40,7 +40,6 @@ const connectStudentToRegister = () => {
 
 // Funzione per eliminare uno studente
 const deleteStudent = (id) => {
-  // Implementa la logica per eliminare uno studente
   for (let i = 0; i < students.length; i++) {
     if (students[i].id == id) {
       console.log(`student ${students[i].id} deleted.`);
