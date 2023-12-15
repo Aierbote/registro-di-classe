@@ -7,6 +7,9 @@ const { TRegister, TStudent } = require("./declarations");
 const registers = [];
 const students = [];
 
+
+const lastStudId = "0";
+
 // Funzione per ottenere la lista dei registri
 const getRegisterList = () => {
   return registers;
@@ -28,9 +31,22 @@ const updateRegister = () => {
 };
 
 // Funzione per creare uno studente
-const createStudent = () => {
-  connectStudentToRegister();
-  // Implementa la logica per creare uno studente
+const createStudent = ({ name, lastName, email, lectures }) => {
+  lastStudId = parseInt(lastStudId);
+  lastStudId++;
+
+  const sampleStudent = {
+    id: '' + lastStudId,
+    name: name,
+    lastName: lastName,
+    email: email,
+    lectures: []
+  }
+
+  sampleStudent.lectures.push(...lectures);
+
+
+  students.push(sampleStudent);
 };
 
 // Funzione per collegare uno studente a un registro
