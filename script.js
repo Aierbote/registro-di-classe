@@ -25,6 +25,9 @@ const deleteRegister = (id) => {
       registers.splice(i, 1);
     }
   }
+
+  console.log(`id ${id} not found in registers`);
+  return null;
 }
 
 // Funzione per aggiornare un registro
