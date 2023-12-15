@@ -1,8 +1,3 @@
-// Import delle dichiarazioni
-// Assicurati che il percorso sia corretto
-// Dal tuo esempio sembra che le dichiarazioni siano in "./declarations"
-const { TRegister, TStudent } = require("./declarations");
-
 // Array di registri e studenti
 const registers = [];
 const students = [];
