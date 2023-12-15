@@ -39,8 +39,16 @@ const connectStudentToRegister = () => {
 };
 
 // Funzione per eliminare uno studente
-const deleteStudent = () => {
+const deleteStudent = (id) => {
   // Implementa la logica per eliminare uno studente
+  for (let i = 0; i < students.length; i++) {
+    if (students[i].id == id) {
+      console.log(`student ${students[i].id} deleted.`);
+      students.splice(i, 1);
+      return;
+    }
+	}
+  console.log(`id ${id} not found in students`);
 };
 
 // Funzione per aggiornare uno studente
