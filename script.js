@@ -47,7 +47,7 @@ const deleteStudent = (id) => {
       students.splice(i, 1);
       return;
     }
-	}
+  }
   console.log(`id ${id} not found in students`);
 };
 
