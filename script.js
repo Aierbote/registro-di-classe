@@ -1,11 +1,10 @@
-// Import delle dichiarazioni
-// Assicurati che il percorso sia corretto
-// Dal tuo esempio sembra che le dichiarazioni siano in "./declarations"
-const { TRegister, TStudent } = require("./declarations");
-
 // Array di registri e studenti
 const registers = [];
 const students = [];
+
+// ultimo id per gli elementi di Registers
+const lastRegId = "0";
+
 
 // Funzione per ottenere la lista dei registri
 const getRegisterList = () => {
@@ -13,8 +12,26 @@ const getRegisterList = () => {
 };
 
 // Funzione per creare un registro
-const createRegister = (name) => {
+const createRegister = ({ name, students, votes, attendances }) => {
+  lastRegId = parseInt(lastRegId);
+  lastRegId++;
+
   // Implementa la logica per creare un registro
+  const sampleRegister = {
+    id: '' + lastRegId,
+    name: name,
+    students: [],
+    votes: [],
+    attendances: []
+  };
+
+  sampleRegister.students.push(...students);
+  sampleRegister.votes.push(...votes);
+  sampleRegister.attendances.push(...attendances);
+
+
+
+  registers.push(sampleRegister);
 };
 
 // Funzione per eliminare un registro
