@@ -2,8 +2,11 @@
 const registers = [];
 const students = [];
 
+
 // ultimo id per gli elementi di Registers
 const lastRegId = "0";
+// ultimo id per gli elementi di Students
+const lastStudId = "0";
 
 
 // Funzione per ottenere la lista dei registri
@@ -13,10 +16,10 @@ const getRegisterList = () => {
 
 // Funzione per ottenere uno specifico registro
 const getRegister = (id) => {
-  for (let i = 0; i < registers.length; i++){
-    if (registers[i].id === id) { return registers[i] };  
-  } 
-  return null; 
+  for (let i = 0; i < registers.length; i++) {
+    if (registers[i].id === id) { return registers[i] };
+  }
+  return null;
 }
 
 // Funzione per creare un registro
@@ -60,9 +63,22 @@ const updateRegister = () => {
 };
 
 // Funzione per creare uno studente
-const createStudent = () => {
-  connectStudentToRegister();
-  // Implementa la logica per creare uno studente
+const createStudent = ({ name, lastName, email, lectures }) => {
+  lastStudId = parseInt(lastStudId);
+  lastStudId++;
+
+  const sampleStudent = {
+    id: '' + lastStudId,
+    name: name,
+    lastName: lastName,
+    email: email,
+    lectures: []
+  }
+
+  sampleStudent.lectures.push(...lectures);
+
+
+  students.push(sampleStudent);
 };
 
 // Funzione per collegare uno studente a un registro
