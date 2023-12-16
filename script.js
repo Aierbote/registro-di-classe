@@ -26,6 +26,8 @@ const createRegister = ({ name, students, votes, attendances }) => {
   lastRegId = parseInt(lastRegId);
   lastRegId++;
 
+  name = normalizeName(name);
+
   // Implementa la logica per creare un registro
   const sampleRegister = {
     id: '' + lastRegId,
@@ -65,6 +67,8 @@ const updateRegister = ({ id, name, students, votes, attendances }) => {
     return;
   }
 
+  name = normalizeName(name);
+
   register.name = name || register.name;
   register.students = students || register.students;
   register.votes = votes || register.votes;
@@ -77,6 +81,9 @@ const updateRegister = ({ id, name, students, votes, attendances }) => {
 const createStudent = ({ name, lastName, email, lectures }) => {
   lastStudId = parseInt(lastStudId);
   lastStudId++;
+
+  name = normalizeName(name);
+  lastName = normalizeName(lastName);
 
   const sampleStudent = {
     id: '' + lastStudId,
@@ -126,6 +133,9 @@ const deleteStudent = (id) => {
 const updateStudent = ({ id, name, lastName, email, lectures }) => {
   const student_ = getStudent(id);
 
+  name = normalizeName(name);
+  lastName = normalizeName(lastName);
+
   if (student_ == undefined) {
     console.log(`id ${id} not found in students`);;
     return;
@@ -158,11 +168,12 @@ const getStudent = (id) => {
   return null;
 }
 
-createRegister({name: 'Chimica', students: [], votes: [], attendances: []});
-createStudent({name: 'gabriele', lastName: 'di grazia', email: 'gabri@mail.it', lectures: []});
-connectStudentToRegister(1, '1');
-console.log(registers[0]);
-
+// Funzione per rimuovere whitespace prima & dopo la stringa e per farne il Title Case
+const normalizeName = (string_) => {
+  string_ = string_.trim();
+  string_ = string_.charAt(0).toUpperCase() + string_.substr(1).toLowerCase();
+  return string_;
+}
 
 // Export delle funzioni
 module.exports = {
@@ -175,4 +186,7 @@ module.exports = {
   deleteStudent,
   updateStudent,
   getStudentList,
+  normalizeName,
+  getRegister,
+  getStudent,
 };
