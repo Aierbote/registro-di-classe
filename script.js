@@ -62,14 +62,14 @@ const updateRegister = ({ id, name, students, votes, attendances }) => {
 
   const register = getRegister(id);
   if (register === null){
-  	console.log(`no register with id: ${id} found.`);
+    console.log(`no register with id: ${id} found.`);
     return;
   }
 
-  register.name = name || 'Subject';
-  register.students = students || [];
-  register.votes = votes || [];
-  register.attendances = attendances || [];
+  register.name = name || register.name;
+  register.students = students || register.students;
+  register.votes = votes || register.votes;
+  register.attendances = attendances || register.attendances;
 
   console.log(`updated register with id ${id} : ${register}`);
 }
