@@ -15,6 +15,7 @@ const getRegisterList = () => {
 // Funzione per ottenere uno specifico registro
 const getRegister = (id) => {
   for (let i = 0; i < registers.length; i++) {
+    //fixare questo e metterlo come non strict comparison?
     if (registers[i].id === id) { return registers[i] };
   }
   return null;
@@ -59,7 +60,7 @@ const deleteRegister = (id) => {
 const updateRegister = ({ id, name, students, votes, attendances }) => {
 
   const register = getRegister(id);
-  if (register === null){
+  if (register === null) {
     console.log(`no register with id: ${id} found.`);
     return;
   }
@@ -92,9 +93,22 @@ const createStudent = ({ name, lastName, email, lectures }) => {
 };
 
 // Funzione per collegare uno studente a un registro
-const connectStudentToRegister = () => {
-  // Implementa la logica per collegare uno studente a un registro
-};
+const connectStudentToRegister = (studentId, classId) => {
+  const register = getRegister(classId);
+  const student = getStudent(studentId);
+
+  console.log(register);
+
+  for (let i = 0; i < register.students.length; i++) {
+    if (register.students[i].id == student.id) {
+      console.log('Student is already assigned to subject.');
+      return;
+    }
+  }
+
+  register.students.push(student);
+  console.log(`student assigned to ${register.name} successfully.`);
+}
 
 // Funzione per eliminare uno studente
 const deleteStudent = (id) => {
@@ -143,6 +157,12 @@ const getStudent = (id) => {
   console.log(`id ${id} not found in students`);
   return null;
 }
+
+createRegister({name: 'Chimica', students: [], votes: [], attendances: []});
+createStudent({name: 'gabriele', lastName: 'di grazia', email: 'gabri@mail.it', lectures: []});
+connectStudentToRegister(1, '1');
+console.log(registers[0]);
+
 
 // Export delle funzioni
 module.exports = {
