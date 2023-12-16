@@ -102,10 +102,11 @@ const updateStudent = ({ id, name, lastName, email, lectures }) => {
     if (students[i].id == id) {
       console.log(`updating student with id ${id} : ${students[i]}`);
 
-      students[i].name = name;
-      students[i].lastName = lastName;
-      students[i].email = email;
-      students[i].lectures = lectures;
+      // se gli argomenti sono nulli `undefined` reassegni lo stesso valore di prima (ergo non cambiano)
+      students[i].name = name || students[i].name;
+      students[i].lastName = lastName || students[i].lastName;
+      students[i].email = email || students[i].email;
+      students[i].lectures = lectures || students[i].lectures;
 
       console.log(`updated student with id ${id} : ${students[i]}`);
       return;
