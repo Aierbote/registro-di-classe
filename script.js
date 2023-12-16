@@ -1,29 +1,61 @@
-// Import delle dichiarazioni
-// Assicurati che il percorso sia corretto
-// Dal tuo esempio sembra che le dichiarazioni siano in "./declarations"
-const { TRegister, TStudent } = require("./declarations");
-
 // Array di registri e studenti
 const registers = [];
 const students = [];
 
 
+// ultimo id per gli elementi di Registers
+const lastRegId = "0";
+// ultimo id per gli elementi di Students
 const lastStudId = "0";
+
 
 // Funzione per ottenere la lista dei registri
 const getRegisterList = () => {
   return registers;
 };
 
+// Funzione per ottenere uno specifico registro
+const getRegister = (id) => {
+  for (let i = 0; i < registers.length; i++) {
+    if (registers[i].id === id) { return registers[i] };
+  }
+  return null;
+}
+
 // Funzione per creare un registro
-const createRegister = (name) => {
+const createRegister = ({ name, students, votes, attendances }) => {
+  lastRegId = parseInt(lastRegId);
+  lastRegId++;
+
   // Implementa la logica per creare un registro
+  const sampleRegister = {
+    id: '' + lastRegId,
+    name: name,
+    students: [],
+    votes: [],
+    attendances: []
+  };
+
+  sampleRegister.students.push(...students);
+  sampleRegister.votes.push(...votes);
+  sampleRegister.attendances.push(...attendances);
+
+
+
+  registers.push(sampleRegister);
 };
 
 // Funzione per eliminare un registro
-const deleteRegister = () => {
-  // Implementa la logica per eliminare un registro
-};
+const deleteRegister = (id) => {
+  for (let i = 0; i < registers.length; i++) {
+    if (registers[i].id == id) {
+      console.log(`register ${registers[i].id} deleted.`);
+      registers.splice(i, 1);
+      return;
+    }
+  }
+  console.log(`id ${id} not found in registers`);
+}
 
 // Funzione per aggiornare un registro
 const updateRegister = () => {
