@@ -56,9 +56,21 @@ const deleteRegister = (id) => {
 }
 
 // Funzione per aggiornare un registro
-const updateRegister = () => {
-  // Implementa la logica per aggiornare un registro
-};
+const updateRegister = ({ id, name, students, votes, attendances }) => {
+
+  const register = getRegister(id);
+  if (register === null){
+    console.log(`no register with id: ${id} found.`);
+    return;
+  }
+
+  register.name = name || register.name;
+  register.students = students || register.students;
+  register.votes = votes || register.votes;
+  register.attendances = attendances || register.attendances;
+
+  console.log(`updated register with id ${id} : ${register}`);
+}
 
 // Funzione per creare uno studente
 const createStudent = ({ name, lastName, email, lectures }) => {
