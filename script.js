@@ -44,8 +44,22 @@ const deleteStudent = () => {
 };
 
 // Funzione per aggiornare uno studente
-const updateStudent = () => {
-  // Implementa la logica per aggiornare uno studente
+const updateStudent = ({ id, name, lastName, email, lectures }) => {
+  for (let i; i < students.length; i++) {
+    if (students[i].id == id) {
+      console.log(`updating student with id ${id} : ${students[i]}`);
+
+      students[i].name = name;
+      students[i].lastName = lastNamelastName;
+      students[i].email = email;
+      students[i].lectures.push(...lectures);
+
+      console.log(`updated student with id ${id} : ${students[i]}`);
+      return;
+    }
+  }
+
+  console.log(`id ${id} not found in students`);
 };
 
 // Funzione per ottenere la lista degli studenti
