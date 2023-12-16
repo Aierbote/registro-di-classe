@@ -2,12 +2,10 @@
 const registers = [];
 const students = [];
 
-
 // ultimo id per gli elementi di Registers
-const lastRegId = "0";
+let lastRegId = "0";
 // ultimo id per gli elementi di Students
-const lastStudId = "0";
-
+let lastStudId = "0";
 
 // Funzione per ottenere la lista dei registri
 const getRegisterList = () => {
@@ -100,14 +98,14 @@ const deleteStudent = (id) => {
 
 // Funzione per aggiornare uno studente
 const updateStudent = ({ id, name, lastName, email, lectures }) => {
-  for (let i; i < students.length; i++) {
+  for (let i = 0; i < students.length; i++) {
     if (students[i].id == id) {
       console.log(`updating student with id ${id} : ${students[i]}`);
 
       students[i].name = name;
       students[i].lastName = lastName;
       students[i].email = email;
-      students[i].lectures.push(...lectures);
+      students[i].lectures = lectures;
 
       console.log(`updated student with id ${id} : ${students[i]}`);
       return;
