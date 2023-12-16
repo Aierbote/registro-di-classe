@@ -66,10 +66,10 @@ const updateRegister = ({ id, name, students, votes, attendances }) => {
     return;
   }
 
-  register.name = name;
-  register.students = students;
-  register.votes = votes;
-  register.attendances = attendances;
+  register.name = name || 'Subject';
+  register.students = students || [];
+  register.votes = votes || [];
+  register.attendances = attendances || [];
 
   console.log(`updated register with id ${id} : ${register}`);
 }
