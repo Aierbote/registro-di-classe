@@ -108,6 +108,18 @@ const getStudentList = () => {
   return students;
 };
 
+// Funzione per ottenere uno specifico studente
+const getStudent = (id) => {
+  for (let i = 0; i < students.length; i++) {
+    if (students[i].id == id) {
+      console.log(`student with id ${id} found in students.`);
+      return students[i]
+    };
+  }
+  console.log(`id ${id} not found in students`);
+  return null;
+}
+
 // Export delle funzioni
 module.exports = {
   getRegisterList,
