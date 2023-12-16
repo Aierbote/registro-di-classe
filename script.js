@@ -59,7 +59,7 @@ const deleteRegister = (id) => {
 const updateRegister = ({ id, name, students, votes, attendances }) => {
 
   const register = getRegister(id);
-  if (register === null){
+  if (register === null) {
     console.log(`no register with id: ${id} found.`);
     return;
   }
