@@ -105,7 +105,7 @@ const updateStudent = ({ id, name, lastName, email, lectures }) => {
       console.log(`updating student with id ${id} : ${students[i]}`);
 
       students[i].name = name;
-      students[i].lastName = lastNamelastName;
+      students[i].lastName = lastName;
       students[i].email = email;
       students[i].lectures.push(...lectures);
 
