@@ -2,12 +2,10 @@
 const registers = [];
 const students = [];
 
-
 // ultimo id per gli elementi di Registers
-const lastRegId = "0";
+let lastRegId = "0";
 // ultimo id per gli elementi di Students
-const lastStudId = "0";
-
+let lastStudId = "0";
 
 // Funzione per ottenere la lista dei registri
 const getRegisterList = () => {
@@ -99,8 +97,22 @@ const deleteStudent = (id) => {
 };
 
 // Funzione per aggiornare uno studente
-const updateStudent = () => {
-  // Implementa la logica per aggiornare uno studente
+const updateStudent = ({ id, name, lastName, email, lectures }) => {
+  const student_ = getStudent(id);
+
+  if (student_ == undefined) {
+    console.log(`id ${id} not found in students`);;
+    return;
+  }
+
+  console.log(`updating student with id ${id} : ${student_}`);
+
+  student_.name = name || student_.name;
+  student_.lastName = lastName || student_.lastName;
+  student_.email = email || student_.email;
+  student_.lectures = lectures || student_.lectures;
+
+  console.log(`updated student with id ${id} : ${student_}`);
 };
 
 // Funzione per ottenere la lista degli studenti
