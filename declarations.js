@@ -15,3 +15,11 @@ let TStudent = {
   email: '',
   lectures: []
 };
+
+// JavaScript equivalent for TAttendance interface
+let TAttendance = {
+  id: '',
+  Date:new Date(),
+  argoument: '',
+  students: []//array<{nome, arrivo, uscita}>
+};
