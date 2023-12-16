@@ -25,6 +25,8 @@ const createRegister = ({ name, students, votes, attendances }) => {
   lastRegId = parseInt(lastRegId);
   lastRegId++;
 
+  name = normalizeName(name);
+
   // Implementa la logica per creare un registro
   const sampleRegister = {
     id: '' + lastRegId,
@@ -64,6 +66,8 @@ const updateRegister = ({ id, name, students, votes, attendances }) => {
     return;
   }
 
+  name = normalizeName(name);
+
   register.name = name || register.name;
   register.students = students || register.students;
   register.votes = votes || register.votes;
@@ -76,6 +80,9 @@ const updateRegister = ({ id, name, students, votes, attendances }) => {
 const createStudent = ({ name, lastName, email, lectures }) => {
   lastStudId = parseInt(lastStudId);
   lastStudId++;
+
+  name = normalizeName(name);
+  lastName = normalizeName(lastName);
 
   const sampleStudent = {
     id: '' + lastStudId,
@@ -111,6 +118,9 @@ const deleteStudent = (id) => {
 // Funzione per aggiornare uno studente
 const updateStudent = ({ id, name, lastName, email, lectures }) => {
   const student_ = getStudent(id);
+
+  name = normalizeName(name);
+  lastName = normalizeName(lastName);
 
   if (student_ == undefined) {
     console.log(`id ${id} not found in students`);;
