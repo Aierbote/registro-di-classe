@@ -173,4 +173,6 @@ module.exports = {
   updateStudent,
   getStudentList,
   normalizeName,
+  getRegister,
+  getStudent,
 };
