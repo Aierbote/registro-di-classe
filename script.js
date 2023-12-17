@@ -198,18 +198,18 @@ const getStudent = (id) => {
 }
 
 
-// Export delle funzioni
-module.exports = {
-  getRegisterList,
-  createRegister,
-  deleteRegister,
-  updateRegister,
-  createStudent,
-  connectStudentToRegister,
-  deleteStudent,
-  updateStudent,
-  getStudentList,
-  normalizeName,
-  getRegister,
-  getStudent
-};
+// // Export delle funzioni
+// module.exports = {
+//   getRegisterList,
+//   createRegister,
+//   deleteRegister,
+//   updateRegister,
+//   createStudent,
+//   connectStudentToRegister,
+//   deleteStudent,
+//   updateStudent,
+//   getStudentList,
+//   normalizeName,
+//   getRegister,
+//   getStudent
+// };
