@@ -6,6 +6,8 @@ const students = [];
 let lastRegId = "0";
 // ultimo id per gli elementi di Students
 let lastStudId = "0";
+// ultimo id per gli le attendances dentro ogni Register (univoco)
+let lastAttId = "0";
 
 // Funzione per ottenere la lista dei registri
 const getRegisterList = () => {
@@ -76,6 +78,26 @@ const updateRegister = ({ id, name, students, votes, attendances }) => {
 
   console.log(`updated register with id ${id} : ${register}`);
 }
+
+// Controllare se l'arrivo non deve superare un certo valore
+// che sarebbe l'orario di uscita?
+// poi si dovrebbe anche controllare che non ci siano due lezioni con lo stesso timestamp
+const createAttendance = ({ registerId, date, argument, attendants }) => {
+  lastAttId = parseInt(lastAttId);
+  lastAttId++;
+
+  //attendance dovrebbe avere anche un id, cosi possiamo avere anche presenze sdoppiate
+  const Attendance = {
+    date: new Date(date), //"yyyy-MM-ddTh:m:s" This is standardized and will work reliably
+    id: '' + lastAttId,
+    argument: argument,
+    attendants: [] //array<{nome, arrivo, uscita}>
+  };
+  
+  Attendance.attendants.push(...attendants);
+  getRegister(registerId).attendances.push(Attendance);
+}
+
 
 // Funzione per creare uno studente
 const createStudent = ({ name, lastName, email, lectures }) => {
