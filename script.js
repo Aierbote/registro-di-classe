@@ -100,7 +100,7 @@ const createAttendance = ({ registerId, date, argument, attendants }) => {
     argument: argument,
     attendants: [] //array<{nome, arrivo, uscita}>
   };
-  
+
   Attendance.attendants.push(...attendants);
   getRegister(registerId).attendances.push(Attendance);
 }
@@ -211,5 +211,5 @@ module.exports = {
   getStudentList,
   normalizeName,
   getRegister,
-  getStudent,
+  getStudent
 };
