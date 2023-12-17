@@ -14,18 +14,19 @@ document.addEventListener('DOMContentLoaded', function () {
   var goToSubject = document.querySelectorAll('.TitoloMateria');
   // var goToSubject2 = document.querySelector('.TitoloMateria .Chimica'); // NOTE : ne serve uno per ciascun bottone quando creato nel DOM
 
-  // TODO: questo funziona solo sul testo, non sul div arrotondato
+
+  // NOTE : questo funzionava solo sul testo, ora sul div arrotondato. MAYBE deve essere rifinito
   if (goToStudentsList) {
-    goToStudentsList.addEventListener('click', notImplemented);
+    goToStudentsList.parentNode.parentNode.addEventListener('click', notImplemented);
   }
 
   if (goToLectures) {
     goToLectures.addEventListener('click', notImplemented);
   }
 
-  // TODO: questo funziona solo sul testo, non sul div arrotondato
+  // NOTE : questo funzionava solo sul testo, ora sul div arrotondato. MAYBE deve essere rifinito
   if (deleteRegister) {
-    deleteRegister.addEventListener('click', notImplemented);
+    deleteRegister.parentNode.addEventListener('click', notImplemented);
   }
 
   if (goToSubject) {
