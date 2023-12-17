@@ -6,6 +6,15 @@ const students = [];
 let lastRegId = "0";
 // ultimo id per gli elementi di Students
 let lastStudId = "0";
+// ultimo id per gli le attendances dentro ogni Register (univoco)
+let lastAttId = "0";
+
+// Funzione per rimuovere whitespace prima & dopo la stringa e per farne il Title Case
+const normalizeName = (string_) => {
+  string_ = string_.trim();
+  string_ = string_.charAt(0).toUpperCase() + string_.substr(1).toLowerCase();
+  return string_;
+}
 
 // Funzione per ottenere la lista dei registri
 const getRegisterList = () => {
@@ -15,6 +24,7 @@ const getRegisterList = () => {
 // Funzione per ottenere uno specifico registro
 const getRegister = (id) => {
   for (let i = 0; i < registers.length; i++) {
+    //fixare questo e metterlo come non strict comparison?
     if (registers[i].id === id) { return registers[i] };
   }
   return null;
@@ -24,6 +34,8 @@ const getRegister = (id) => {
 const createRegister = ({ name, students, votes, attendances }) => {
   lastRegId = parseInt(lastRegId);
   lastRegId++;
+
+  name = normalizeName(name);
 
   // Implementa la logica per creare un registro
   const sampleRegister = {
@@ -59,10 +71,12 @@ const deleteRegister = (id) => {
 const updateRegister = ({ id, name, students, votes, attendances }) => {
 
   const register = getRegister(id);
-  if (register === null){
+  if (register === null) {
     console.log(`no register with id: ${id} found.`);
     return;
   }
+
+  name = normalizeName(name);
 
   register.name = name || register.name;
   register.students = students || register.students;
@@ -72,10 +86,33 @@ const updateRegister = ({ id, name, students, votes, attendances }) => {
   console.log(`updated register with id ${id} : ${register}`);
 }
 
+// Controllare se l'arrivo non deve superare un certo valore
+// che sarebbe l'orario di uscita?
+// poi si dovrebbe anche controllare che non ci siano due lezioni con lo stesso timestamp
+const createAttendance = ({ registerId, date, argument, attendants }) => {
+  lastAttId = parseInt(lastAttId);
+  lastAttId++;
+
+  //attendance dovrebbe avere anche un id, cosi possiamo avere anche presenze sdoppiate
+  const Attendance = {
+    date: new Date(date), //"yyyy-MM-ddTh:m:s" This is standardized and will work reliably
+    id: '' + lastAttId,
+    argument: argument,
+    attendants: [] //array<{nome, arrivo, uscita}>
+  };
+
+  Attendance.attendants.push(...attendants);
+  getRegister(registerId).attendances.push(Attendance);
+}
+
+
 // Funzione per creare uno studente
 const createStudent = ({ name, lastName, email, lectures }) => {
   lastStudId = parseInt(lastStudId);
   lastStudId++;
+
+  name = normalizeName(name);
+  lastName = normalizeName(lastName);
 
   const sampleStudent = {
     id: '' + lastStudId,
@@ -92,9 +129,22 @@ const createStudent = ({ name, lastName, email, lectures }) => {
 };
 
 // Funzione per collegare uno studente a un registro
-const connectStudentToRegister = () => {
-  // Implementa la logica per collegare uno studente a un registro
-};
+const connectStudentToRegister = (studentId, classId) => {
+  const register = getRegister(classId);
+  const student = getStudent(studentId);
+
+  console.log(register);
+
+  for (let i = 0; i < register.students.length; i++) {
+    if (register.students[i].id == student.id) {
+      console.log('Student is already assigned to subject.');
+      return;
+    }
+  }
+
+  register.students.push(student);
+  console.log(`student assigned to ${register.name} successfully.`);
+}
 
 // Funzione per eliminare uno studente
 const deleteStudent = (id) => {
@@ -111,6 +161,9 @@ const deleteStudent = (id) => {
 // Funzione per aggiornare uno studente
 const updateStudent = ({ id, name, lastName, email, lectures }) => {
   const student_ = getStudent(id);
+
+  name = normalizeName(name);
+  lastName = normalizeName(lastName);
 
   if (student_ == undefined) {
     console.log(`id ${id} not found in students`);;
@@ -144,6 +197,7 @@ const getStudent = (id) => {
   return null;
 }
 
+
 // Export delle funzioni
 module.exports = {
   getRegisterList,
@@ -155,4 +209,7 @@ module.exports = {
   deleteStudent,
   updateStudent,
   getStudentList,
+  normalizeName,
+  getRegister,
+  getStudent
 };
