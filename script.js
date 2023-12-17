@@ -9,6 +9,13 @@ let lastStudId = "0";
 // ultimo id per gli le attendances dentro ogni Register (univoco)
 let lastAttId = "0";
 
+// Funzione per rimuovere whitespace prima & dopo la stringa e per farne il Title Case
+const normalizeName = (string_) => {
+  string_ = string_.trim();
+  string_ = string_.charAt(0).toUpperCase() + string_.substr(1).toLowerCase();
+  return string_;
+}
+
 // Funzione per ottenere la lista dei registri
 const getRegisterList = () => {
   return registers;
