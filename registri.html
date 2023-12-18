@@ -8,57 +8,52 @@
     <title>Portale Scuola</title>
   </head>
   <body>
-    <div class="WindowLezioni">
-      <div class="Nav">
-        <div class="Titolo">
-          <div class="PortaleScuola">Portale Scuola</div>
-        </div>
-      </div>
-      <div class="Main">
-        <div class="ListaRegistri">
-          <div class="Titolo">
-            <div class="TuttiIRegistri">Tutti i registri</div>
-          </div>
-          <div class="Lista">
-            <div class="Materia">
-              <div class="TitoloMateria">
-                <div class="Chimica">Chimica</div>
-                <div></div>
-              </div>
-            </div>
+    <header>
+      <nav class="Nav">
+        <h1 class="PortaleScuola">Portale Scuola</h1>
+      </nav>
+    </header>
 
-            <div class="Materia">
-              <div class="TitoloMateria">
-                <div class="Italiano">+</div>
-              </div>
-            </div>
+    <main class="Main">
+      <aside class="ListaRegistri">
+        <h3 class="TuttiIRegistri">Tutti i registri</h3>
+        <ul class="Lista">
+          <li class="Materia">
+            <button class="TitoloMateria">
+              <h4 class="Chimica">Chimica</h4>
+            </button>
+          </li>
+          <li class="Materia">
+            <button class="TitoloMateria">
+              <h4 class="aggiungi">+</h4>
+            </button>
+          </li>
+        </ul>
+      </aside>
+      <div class="VisualeLezione">
+        <div class="TitoloMateria">Chimica</div>
+        <div class="OpzioniMateria">
+          <div class="BottoneElencaStudenti">
+            <button class="button">
+              <a href="elenco.html"><div class="ElencoStudenti">Elenco studenti</div></a>
+            </button>
           </div>
-        </div>
-        <div class="VisualeLezione">
-          <div class="TitoloMateria">Chimica</div>
-          <div class="OpzioniMateria">
-            <div class="BottoneElencaStudenti">
-              <button class="button">
-                <a href="elenco.html"><div class="ElencoStudenti">Elenco studenti</div></a>
-              </button>
-            </div>
-            <div class="BottoneMostraLezioni">
-              <div class="Lezioni">Lezioni</div>
-            </div>
-          </div>
-        </div>
-        <div class="MenuEdita">
-          <div class="Titolo">
-            <div class="Edita">edita</div>
-          </div>
-          <div class="Lista">
-            <div class="Opzione">
-              <div class="EliminaRegistro">elimina registro</div>
-            </div>
+          <div class="BottoneMostraLezioni">
+            <div class="Lezioni">Lezioni</div>
           </div>
         </div>
       </div>
-      <div class="Footer"></div>
-    </div>
+      <div class="MenuEdita">
+        <div class="Titolo">
+          <div class="Edita">edita</div>
+        </div>
+        <div class="Lista">
+          <div class="Opzione">
+            <div class="EliminaRegistro">elimina registro</div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="Footer"></div>
   </body>
 </html>
