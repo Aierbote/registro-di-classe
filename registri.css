@@ -22,21 +22,33 @@ body {
   --subject-color-1: #4a4a4a;
   --subject-color-2: #ec5555;
   --subject-color-3: #975437;
-  --subject-color-3: #50669e;
+  --subject-color-4: #50669e;
 
   font-family: 'Istok Web', sans-serif;
-  /* font-size: 51px;
+  /*
+  font-size: 51px;
   font-style: normal;
   font-weight: 700;
   line-height: normal; */
+}
+
+.loginPalette {
+  --login-button: #ff9800;
+  --team-color-1: #ffae00;
+  --team-color-2: #ff3300;
+  --team-color-3: #00d8d6;
+  --team-color-4: #00a0c9;
+  --team-color-5: #0070a4;
+  --team-color-6: #003a64;
+  --team-color-7: #001938;
 }
 
 /* LET THE REST BURN */
 /*
 
 style="
-width: 1440px;
-height: 1955px;
+width: 90rem;
+height: 122.1875rem;
 background: white;
 flex-direction: column;
 justify-content: flex-start;
@@ -45,71 +57,71 @@ display: inline-flex;
 "
 style="
   align-self: stretch;
-  height: 107px;
-  padding-top: 17px;
-  padding-bottom: 17px;
-  padding-left: 33px;
-  padding-right: 10px;
+  height: 6.6875rem;
+  padding-top: 1.0625rem;
+  padding-bottom: 1.0625rem;
+  padding-left: 2.0625rem;
+  padding-right: .625rem;
   background: black;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 26px;
+  gap: 1.625rem;
   display: flex;
 "
   style="align-self: stretch; justify-content: flex-start; align-items: flex-start; display: inline-flex"
 
-    style="color: white; font-size: 51px; font-family: sans-serif; font-weight: 700; word-wrap: break-word"
+    style="color: white; font-size: 3.1875rem; font-family: sans-serif; font-weight: 700; word-wrap: break-word"
 
 style="
   align-self: stretch;
-  height: 1688px;
+  height: 105.5rem;
   justify-content: flex-start;
   align-items: flex-start;
   display: inline-flex;
 "
 style="
     align-self: stretch;
-    padding: 10px;
+    padding: .625rem;
     background: #929292;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 10px;
+    gap: .625rem;
     display: inline-flex;
   "
 style="
       align-self: stretch;
-      height: 55px;
-      padding-top: 10px;
-      padding-bottom: 10px;
+      height: 3.4375rem;
+      padding-top: .625rem;
+      padding-bottom: .625rem;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      gap: 10px;
+      gap: .625rem;
       display: flex;
     "
-      style="color: white; font-size: 24px; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
+      style="color: white; font-size: 1.5rem; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
 
 style="
-      width: 386px;
+      width: 24.125rem;
       flex: 1 1 0;
-      padding-left: 13px;
-      padding-right: 13px;
-      padding-top: 19px;
-      padding-bottom: 19px;
+      padding-left: .8125rem;
+      padding-right: .8125rem;
+      padding-top: 1.1875rem;
+      padding-bottom: 1.1875rem;
       background: white;
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
-      gap: 13px;
+      gap: .8125rem;
       display: flex;
     "
 style="
-        width: 360px;
-        height: 36px;
+        width: 22.5rem;
+        height: 2.25rem;
         background: #4a4a4a;
-        border-radius: 19px;
+        border-radius: 1.1875rem;
         overflow: hidden;
         flex-direction: column;
         justify-content: center;
@@ -119,16 +131,16 @@ style="
 style="
           align-self: stretch;
           flex: 1 1 0;
-          padding-left: 27px;
-          padding-right: 27px;
+          padding-left: 1.6875rem;
+          padding-right: 1.6875rem;
           justify-content: flex-start;
           align-items: center;
-          gap: 203px;
+          gap: 12.6875rem;
           display: inline-flex;
         "
 style="
             color: white;
-            font-size: 24px;
+            font-size: 1.5rem;
             font-family: sans-serif;
             font-weight: 400;
             word-wrap: break-word;
@@ -136,16 +148,16 @@ style="
 style="
             text-align: right;
             color: white;
-            font-size: 24px;
+            font-size: 1.5rem;
             font-family: sans-serif;
             font-weight: 400;
             word-wrap: break-word;
           "
 style="
-        width: 360px;
-        height: 36px;
+        width: 22.5rem;
+        height: 2.25rem;
         background: #bdbdbd;
-        border-radius: 19px;
+        border-radius: 1.1875rem;
         overflow: hidden;
         flex-direction: column;
         justify-content: center;
@@ -162,117 +174,117 @@ style="
         "
 style="
             color: white;
-            font-size: 31px;
+            font-size: 1.9375rem;
             font-family: sans-serif;
             font-weight: 400;
             word-wrap: break-word;
           "
 style="
     flex: 1 1 0;
-    height: 1688px;
-    padding-left: 77px;
-    padding-right: 77px;
-    padding-top: 51px;
-    padding-bottom: 51px;
+    height: 105.5rem;
+    padding-left: 4.8125rem;
+    padding-right: 4.8125rem;
+    padding-top: 3.1875rem;
+    padding-bottom: 3.1875rem;
     background: #bdbdbd;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 8px;
+    gap: .5rem;
     display: inline-flex;
   "
-    style="color: black; font-size: 40px; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
+    style="color: black; font-size: 2.5rem; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
 
 style="
       align-self: stretch;
-      padding-top: 14px;
-      padding-bottom: 14px;
+      padding-top: .875rem;
+      padding-bottom: .875rem;
       justify-content: flex-start;
       align-items: flex-start;
-      gap: 20px;
+      gap: 1.25rem;
       display: inline-flex;
     "
 style="
-        width: 219px;
+        width: 13.6875rem;
         align-self: stretch;
-        padding-top: 7px;
-        padding-bottom: 7px;
+        padding-top: .4375rem;
+        padding-bottom: .4375rem;
         background: #929292;
-        border-radius: 19px;
+        border-radius: 1.1875rem;
         overflow: hidden;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         display: inline-flex;
       "
-            style="font-size: 22px; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
+            style="font-size: 1.375rem; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
 
 style="
-        width: 219px;
+        width: 13.6875rem;
         align-self: stretch;
-        padding-top: 7px;
-        padding-bottom: 7px;
+        padding-top: .4375rem;
+        padding-bottom: .4375rem;
         background: #929292;
-        border-radius: 19px;
+        border-radius: 1.1875rem;
         overflow: hidden;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         display: inline-flex;
       "
-        style="color: white; font-size: 22px; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
+        style="color: white; font-size: 1.375rem; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
 
 style="
-    width: 265px;
+    width: 16.5625rem;
     align-self: stretch;
-    padding: 10px;
+    padding: .625rem;
     background: #929292;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 10px;
+    gap: .625rem;
     display: inline-flex;
   "
 style="
       align-self: stretch;
-      height: 55px;
-      padding-top: 10px;
-      padding-bottom: 10px;
+      height: 3.4375rem;
+      padding-top: .625rem;
+      padding-bottom: .625rem;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      gap: 10px;
+      gap: .625rem;
       display: flex;
     "
-      style="color: white; font-size: 24px; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
+      style="color: white; font-size: 1.5rem; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
 
 style="
       align-self: stretch;
       flex: 1 1 0;
-      padding-left: 13px;
-      padding-right: 13px;
-      padding-top: 19px;
-      padding-bottom: 19px;
+      padding-left: .8125rem;
+      padding-right: .8125rem;
+      padding-top: 1.1875rem;
+      padding-bottom: 1.1875rem;
       background: white;
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
-      gap: 13px;
+      gap: .8125rem;
       display: flex;
     "
 style="
         align-self: stretch;
-        height: 36px;
+        height: 2.25rem;
         background: #929292;
-        border-radius: 19px;
+        border-radius: 1.1875rem;
         overflow: hidden;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         display: flex;
       "
-        style="color: white; font-size: 24px; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
+        style="color: white; font-size: 1.5rem; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
 
-style="align-self: stretch; height: 223px; padding: 10px; background: black"
+style="align-self: stretch; height: 13.9375rem; padding: .625rem; background: black"
 
 */
