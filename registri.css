@@ -1,3 +1,39 @@
+/**
+ * imports
+ *
+ * @format
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* to forbid default spacing around variou objects */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Default style for body */
+body {
+  --header-black: #000;
+  --header-white: #fff;
+  --primary-color: #929292;
+  --secondary-color: #bdbdbd;
+  --secondary-color: #bdbdbd;
+  --subject-color-1: #4a4a4a;
+  --subject-color-2: #ec5555;
+  --subject-color-3: #975437;
+  --subject-color-3: #50669e;
+
+  font-family: 'Istok Web', sans-serif;
+  /* font-size: 51px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal; */
+}
+
+/* LET THE REST BURN */
+/*
+
 style="
 width: 1440px;
 height: 1955px;
@@ -238,3 +274,5 @@ style="
         style="color: white; font-size: 24px; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
 
 style="align-self: stretch; height: 223px; padding: 10px; background: black"
+
+*/
