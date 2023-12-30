@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (goToSubject) {
+    // FIXME : put a separated event listener to the button AddRegister
     goToSubject.forEach(elem =>
       elem.addEventListener('click', notImplemented)
     );
