@@ -5,6 +5,7 @@
 - Alberto Cangialosi
 - Gabriele Di Grazia
 - Marco Corsini
+- Rita Ciaramitaro
 
 ## Mockup
 
