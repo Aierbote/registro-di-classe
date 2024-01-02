@@ -1,0 +1,150 @@
+/**
+ * imports
+ *
+ * @format
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* to forbid default spacing around variou objects */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+:root{
+  /* body palette */
+  --header-black: #000;
+  --header-white: #fff;
+  --primary-color: #929292;
+  --secondary-color: #bdbdbd;
+  --secondary-color: #bdbdbd;
+  --subject-color-1: #4a4a4a;
+  --subject-color-2: #ec5555;
+  --subject-color-3: #975437;
+  --subject-color-4: #50669e;
+
+  /* login palette */
+  --login-button: #ff9800;
+  --team-color-1: #ffae00;
+  --team-color-2: #ff3300;
+  --team-color-3: #00d8d6;
+  --team-color-4: #00a0c9;
+  --team-color-5: #0070a4;
+  --team-color-6: #003a64;
+  --team-color-7: #001938;
+}
+
+
+
+/* Default style for body */
+body {
+
+  font-family: 'Istok Web', sans-serif;
+  background-color: var(--header-white);
+  /*
+  font-size: 51px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal; */
+}
+
+h1, h2, h3, h4, h5, h6, p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: var(--header-white);
+  text-align: center;
+  padding: 10px 0;
+}
+
+.Nav {
+  display: flex;
+  justify-content: center;
+}
+
+.PortaleScuola {
+  font-size: 24px;
+}
+
+.Main {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.ListaRegistri {
+  width: 20%;
+}
+
+.TuttiIRegistri {
+  font-size: 18px;
+}
+
+.Lista {
+  list-style-type: none;
+  margin-top: 10px;
+}
+
+.Materia {
+  margin-bottom: 10px;
+}
+
+.TitoloMateria {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: var(--header-white);
+  padding: 10px;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.VisualeLezione {
+  width: 60%;
+}
+
+.TitoloMateria {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.OpzioniMateria {
+  display: flex;
+  justify-content: space-between;
+}
+
+.BottoneElencaStudenti,
+.BottoneMostraLezioni {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.MenuEdita {
+  width: 15%;
+}
+
+.Edita {
+  font-size: 18px;
+}
+
+.EliminaRegistro {
+  background-color: #cc0000;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.Footer {
+  height: 50px;
+  background-color: #333;
+  margin-top: 20px;
+}
