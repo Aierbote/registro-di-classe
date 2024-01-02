@@ -12,8 +12,9 @@
   padding: 0;
 }
 
-/* Default style for body */
-body {
+
+:root{
+  /* body palette */
   --header-black: #000;
   --header-white: #fff;
   --primary-color: #929292;
@@ -24,15 +25,7 @@ body {
   --subject-color-3: #975437;
   --subject-color-4: #50669e;
 
-  font-family: 'Istok Web', sans-serif;
-  /*
-  font-size: 51px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal; */
-}
-
-.loginPalette {
+  /* login palette */
   --login-button: #ff9800;
   --team-color-1: #ffae00;
   --team-color-2: #ff3300;
@@ -43,248 +36,115 @@ body {
   --team-color-7: #001938;
 }
 
-/* LET THE REST BURN */
-/*
 
-style="
-width: 90rem;
-height: 122.1875rem;
-background: white;
-flex-direction: column;
-justify-content: flex-start;
-align-items: flex-start;
-display: inline-flex;
-"
-style="
-  align-self: stretch;
-  height: 6.6875rem;
-  padding-top: 1.0625rem;
-  padding-bottom: 1.0625rem;
-  padding-left: 2.0625rem;
-  padding-right: .625rem;
-  background: black;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 1.625rem;
+
+/* Default style for body */
+body {
+
+  font-family: 'Istok Web', sans-serif;
+  background-color: var(--header-white);
+  /*
+  font-size: 51px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal; */
+}
+
+h1, h2, h3, h4, h5, h6, p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: var(--header-white);
+  text-align: center;
+  padding: 10px 0;
+}
+
+.Nav {
   display: flex;
-"
-  style="align-self: stretch; justify-content: flex-start; align-items: flex-start; display: inline-flex"
+  justify-content: center;
+}
 
-    style="color: white; font-size: 3.1875rem; font-family: sans-serif; font-weight: 700; word-wrap: break-word"
+.PortaleScuola {
+  font-size: 24px;
+}
 
-style="
-  align-self: stretch;
-  height: 105.5rem;
-  justify-content: flex-start;
-  align-items: flex-start;
-  display: inline-flex;
-"
-style="
-    align-self: stretch;
-    padding: .625rem;
-    background: #929292;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: .625rem;
-    display: inline-flex;
-  "
-style="
-      align-self: stretch;
-      height: 3.4375rem;
-      padding-top: .625rem;
-      padding-bottom: .625rem;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      gap: .625rem;
-      display: flex;
-    "
-      style="color: white; font-size: 1.5rem; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
+.Main {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
 
-style="
-      width: 24.125rem;
-      flex: 1 1 0;
-      padding-left: .8125rem;
-      padding-right: .8125rem;
-      padding-top: 1.1875rem;
-      padding-bottom: 1.1875rem;
-      background: white;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      gap: .8125rem;
-      display: flex;
-    "
-style="
-        width: 22.5rem;
-        height: 2.25rem;
-        background: #4a4a4a;
-        border-radius: 1.1875rem;
-        overflow: hidden;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        display: flex;
-      "
-style="
-          align-self: stretch;
-          flex: 1 1 0;
-          padding-left: 1.6875rem;
-          padding-right: 1.6875rem;
-          justify-content: flex-start;
-          align-items: center;
-          gap: 12.6875rem;
-          display: inline-flex;
-        "
-style="
-            color: white;
-            font-size: 1.5rem;
-            font-family: sans-serif;
-            font-weight: 400;
-            word-wrap: break-word;
-          "
-style="
-            text-align: right;
-            color: white;
-            font-size: 1.5rem;
-            font-family: sans-serif;
-            font-weight: 400;
-            word-wrap: break-word;
-          "
-style="
-        width: 22.5rem;
-        height: 2.25rem;
-        background: #bdbdbd;
-        border-radius: 1.1875rem;
-        overflow: hidden;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-      "
-style="
-          align-self: stretch;
-          flex: 1 1 0;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          display: flex;
-        "
-style="
-            color: white;
-            font-size: 1.9375rem;
-            font-family: sans-serif;
-            font-weight: 400;
-            word-wrap: break-word;
-          "
-style="
-    flex: 1 1 0;
-    height: 105.5rem;
-    padding-left: 4.8125rem;
-    padding-right: 4.8125rem;
-    padding-top: 3.1875rem;
-    padding-bottom: 3.1875rem;
-    background: #bdbdbd;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: .5rem;
-    display: inline-flex;
-  "
-    style="color: black; font-size: 2.5rem; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
+.ListaRegistri {
+  width: 20%;
+}
 
-style="
-      align-self: stretch;
-      padding-top: .875rem;
-      padding-bottom: .875rem;
-      justify-content: flex-start;
-      align-items: flex-start;
-      gap: 1.25rem;
-      display: inline-flex;
-    "
-style="
-        width: 13.6875rem;
-        align-self: stretch;
-        padding-top: .4375rem;
-        padding-bottom: .4375rem;
-        background: #929292;
-        border-radius: 1.1875rem;
-        overflow: hidden;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        display: inline-flex;
-      "
-            style="font-size: 1.375rem; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
+.TuttiIRegistri {
+  font-size: 18px;
+}
 
-style="
-        width: 13.6875rem;
-        align-self: stretch;
-        padding-top: .4375rem;
-        padding-bottom: .4375rem;
-        background: #929292;
-        border-radius: 1.1875rem;
-        overflow: hidden;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        display: inline-flex;
-      "
-        style="color: white; font-size: 1.375rem; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
+.Lista {
+  list-style-type: none;
+  margin-top: 10px;
+}
 
-style="
-    width: 16.5625rem;
-    align-self: stretch;
-    padding: .625rem;
-    background: #929292;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: .625rem;
-    display: inline-flex;
-  "
-style="
-      align-self: stretch;
-      height: 3.4375rem;
-      padding-top: .625rem;
-      padding-bottom: .625rem;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      gap: .625rem;
-      display: flex;
-    "
-      style="color: white; font-size: 1.5rem; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
+.Materia {
+  margin-bottom: 10px;
+}
 
-style="
-      align-self: stretch;
-      flex: 1 1 0;
-      padding-left: .8125rem;
-      padding-right: .8125rem;
-      padding-top: 1.1875rem;
-      padding-bottom: 1.1875rem;
-      background: white;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      gap: .8125rem;
-      display: flex;
-    "
-style="
-        align-self: stretch;
-        height: 2.25rem;
-        background: #929292;
-        border-radius: 1.1875rem;
-        overflow: hidden;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-      "
-        style="color: white; font-size: 1.5rem; font-family: sans-serif; font-weight: 400; word-wrap: break-word"
+.TitoloMateria {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: var(--header-white);
+  padding: 10px;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
 
-style="align-self: stretch; height: 13.9375rem; padding: .625rem; background: black"
+.VisualeLezione {
+  width: 60%;
+}
 
-*/
+.TitoloMateria {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.OpzioniMateria {
+  display: flex;
+  justify-content: space-between;
+}
+
+.BottoneElencaStudenti,
+.BottoneMostraLezioni {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.MenuEdita {
+  width: 15%;
+}
+
+.Edita {
+  font-size: 18px;
+}
+
+.EliminaRegistro {
+  background-color: #cc0000;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.Footer {
+  height: 50px;
+  background-color: #333;
+  margin-top: 20px;
+}
