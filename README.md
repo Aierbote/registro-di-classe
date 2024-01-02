@@ -87,6 +87,10 @@ let TAttendance = {
    cd class-register
    ```
 
+> [!NOTE]
+>
+> **npm**: Stands for Node Package Manager. It is the default package manager for Node.js, and it helps manage the dependencies and packages for your Node.js projects. [More on how to install Node.js!](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
 3. Install dependencies:
 
    ```bash
