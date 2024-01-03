@@ -12,8 +12,7 @@
   padding: 0;
 }
 
-
-:root{
+:root {
   /* body palette */
   --header-black: #000;
   --header-white: #fff;
@@ -36,11 +35,8 @@
   --team-color-7: #001938;
 }
 
-
-
 /* Default style for body */
 body {
-
   font-family: 'Istok Web', sans-serif;
   background-color: var(--header-white);
   /*
@@ -50,7 +46,14 @@ body {
   line-height: normal; */
 }
 
-h1, h2, h3, h4, h5, h6, p, ul {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
   margin: 0;
   padding: 0;
 }
