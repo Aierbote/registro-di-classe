@@ -37,7 +37,7 @@
 
 /* Default style for body */
 body {
-  font-family: 'Istok Web', sans-serif;
+  font-family: 'Istok Web', sans-serif !important;
   background-color: var(--header-white);
   /*
   font-size: 51px;
