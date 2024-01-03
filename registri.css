@@ -82,9 +82,9 @@ header {
   min-height: 400px;
 }
 
-.ListaRegistri {
+/* .ListaRegistri {
   width: 20%;
-}
+} */
 
 .TuttiIRegistri {
   font-size: 18px;
@@ -109,9 +109,9 @@ header {
   cursor: pointer;
 }
 
-.VisualeLezione {
+/* .VisualeLezione {
   width: 60%;
-}
+} */
 
 .TitoloMateria {
   font-size: 24px;
@@ -132,9 +132,9 @@ header {
   cursor: pointer;
 }
 
-.MenuEdita {
+/* .MenuEdita {
   width: 15%;
-}
+} */
 
 .Edita {
   font-size: 18px;
