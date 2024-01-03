@@ -24,50 +24,66 @@
     ></script>
   </head>
   <body>
-    <header>
-      <nav class="Nav">
-        <h1 class="PortaleScuola">Portale Scuola</h1>
-      </nav>
-    </header>
-
-    <main class="Main">
-      <aside class="ListaRegistri">
-        <h3 class="TuttiIRegistri">Tutti i registri</h3>
-        <ul class="Lista">
-          <li class="Materia">
-            <button class="TitoloMateria">
-              <h4 class="Chimica">Chimica</h4>
-            </button>
-          </li>
-          <li class="Materia">
-            <button class="TitoloMateria">
-              <h4 class="aggiungi">+</h4>
-            </button>
-          </li>
-        </ul>
-      </aside>
-      <section class="VisualeLezione">
-        <h2 class="TitoloMateria">Chimica</h2>
-        <div class="OpzioniMateria">
-          <button class="BottoneElencaStudenti">
-            <a href="elenco.html">Elenco studenti</a>
-          </button>
-
-          <button class="BottoneMostraLezioni">
-            <a class="Lezioni">Lezioni</a>
-          </button>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <header>
+            <nav class="Nav">
+              <h1 class="PortaleScuola">Portale Scuola</h1>
+            </nav>
+          </header>
         </div>
-      </section>
-      <aside class="MenuEdita">
-        <h3 class="Edita">edita</h3>
+      </div>
 
-        <ul class="Lista">
-          <li class="Opzione">
-            <button class="EliminaRegistro">elimina registro</button>
-          </li>
-        </ul>
-      </aside>
-    </main>
-    <div class="Footer"></div>
+      <div class="row">
+        <div class="col">
+          <main class="Main">
+            <aside class="ListaRegistri">
+              <h3 class="TuttiIRegistri">Tutti i registri</h3>
+              <ul class="Lista">
+                <li class="Materia">
+                  <button class="TitoloMateria">
+                    <h4 class="Chimica">Chimica</h4>
+                  </button>
+                </li>
+                <li class="Materia">
+                  <button class="TitoloMateria">
+                    <h4 class="aggiungi">+</h4>
+                  </button>
+                </li>
+              </ul>
+            </aside>
+            <section class="VisualeLezione">
+              <h2 class="TitoloMateria">Chimica</h2>
+              <div class="OpzioniMateria">
+                <button class="BottoneElencaStudenti">
+                  <a href="elenco.html">Elenco studenti</a>
+                </button>
+
+                <button class="BottoneMostraLezioni">
+                  <a class="Lezioni">Lezioni</a>
+                </button>
+              </div>
+            </section>
+            <aside class="MenuEdita">
+              <h3 class="Edita">edita</h3>
+
+              <ul class="Lista">
+                <li class="Opzione">
+                  <button class="EliminaRegistro">elimina registro</button>
+                </li>
+              </ul>
+            </aside>
+          </main>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <!-- TODO : change this into semantic tag, maybe -->
+          <div class="Footer"></div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
