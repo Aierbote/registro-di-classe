@@ -44,6 +44,15 @@ body {
   font-style: normal;
   font-weight: 700;
   line-height: normal; */
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.FlexedToGrow {
+  flex-grow: 1;
+  background-color: white;
 }
 
 h1,
@@ -79,7 +88,7 @@ header {
   justify-content: space-between;
   margin: 20px;
 
-  min-height: 400px;
+  /* min-height: 400px; */
 }
 
 /* .ListaRegistri {
