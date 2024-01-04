@@ -224,3 +224,5 @@ const getStudent = (id) => {
 //   getRegister,
 //   getStudent
 // };
+
+export { registers };
