@@ -95,6 +95,12 @@ header {
   width: 20%;
 } */
 
+.ListaRegistri,
+.MenuEdita {
+  background-color: var(--primary-color);
+  padding: 10px;
+}
+
 .TuttiIRegistri {
   font-size: 18px;
 }
@@ -102,6 +108,9 @@ header {
 .Lista {
   list-style-type: none;
   margin-top: 10px;
+
+  background-color: var(--header-white);
+  padding: 13px;
 }
 
 .Materia {
@@ -118,9 +127,12 @@ header {
   cursor: pointer;
 }
 
-/* .VisualeLezione {
-  width: 60%;
-} */
+.VisualeLezione {
+  /* width: 60%; */
+
+  background-color: var(--secondary-color);
+  padding: 20px;
+}
 
 .TitoloMateria {
   font-size: 24px;
