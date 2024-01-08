@@ -12,8 +12,7 @@
   padding: 0;
 }
 
-
-:root{
+:root {
   /* body palette */
   --header-black: #000;
   --header-white: #fff;
@@ -36,21 +35,34 @@
   --team-color-7: #001938;
 }
 
-
-
 /* Default style for body */
 body {
-
-  font-family: 'Istok Web', sans-serif;
+  font-family: 'Istok Web', sans-serif !important;
   background-color: var(--header-white);
   /*
   font-size: 51px;
   font-style: normal;
   font-weight: 700;
   line-height: normal; */
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6, p, ul {
+.FlexedToGrow {
+  flex-grow: 1;
+  background-color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
   margin: 0;
   padding: 0;
 }
@@ -75,10 +87,18 @@ header {
   display: flex;
   justify-content: space-between;
   margin: 20px;
+
+  /* min-height: 400px; */
 }
 
-.ListaRegistri {
+/* .ListaRegistri {
   width: 20%;
+} */
+
+.ListaRegistri,
+.MenuEdita {
+  background-color: var(--primary-color);
+  padding: 10px;
 }
 
 .TuttiIRegistri {
@@ -88,6 +108,9 @@ header {
 .Lista {
   list-style-type: none;
   margin-top: 10px;
+
+  background-color: var(--header-white);
+  padding: 13px;
 }
 
 .Materia {
@@ -105,7 +128,10 @@ header {
 }
 
 .VisualeLezione {
-  width: 60%;
+  /* width: 60%; */
+
+  background-color: var(--secondary-color);
+  padding: 20px;
 }
 
 .TitoloMateria {
@@ -127,9 +153,9 @@ header {
   cursor: pointer;
 }
 
-.MenuEdita {
+/* .MenuEdita {
   width: 15%;
-}
+} */
 
 .Edita {
   font-size: 18px;
