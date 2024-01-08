@@ -198,14 +198,8 @@ const getStudentList = () => {
 
 // Funzione per ottenere uno specifico studente
 const getStudent = (id) => {
-  for (let i = 0; i < students.length; i++) {
-    if (students[i].id == id) {
-      console.log(`student with id ${id} found in students.`);
-      return students[i]
-    };
-  }
-  console.log(`id ${id} not found in students`);
-  return null;
+  const students = getStudentList();
+  return students.find((student) => student.id === id);
 }
 
 
