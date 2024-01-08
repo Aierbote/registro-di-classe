@@ -162,25 +162,22 @@ const deleteStudent = (id) => {
 };
 
 // Funzione per aggiornare uno studente
-const updateStudent = ({ id, name, lastName, email, lectures }) => {
-  const student_ = getStudent(id);
+const updateStudent = ({ id, name: newName, lastName: newLastName, email: newEmail, lectures: newLectures }) => {
+  const oldStudent = getStudent(id);
 
-  name = normalizeName(name);
-  lastName = normalizeName(lastName);
-
-  if (student_ == undefined) {
+  if (oldStudent == undefined) {
     console.log(`id ${id} not found in students`);;
     return;
   }
 
-  console.log(`updating student with id ${id} : ${student_}`);
+  console.log(`updating student with id ${id} : ${oldStudent}`);
 
-  student_.name = name || student_.name;
-  student_.lastName = lastName || student_.lastName;
-  student_.email = email || student_.email;
-  student_.lectures = lectures || student_.lectures;
+  oldStudent.name = normalizeName(newName) || oldStudent.name;
+  oldStudent.lastName = normalizeName(newLastName) || oldStudent.lastName;
+  oldStudent.email = newEmail || oldStudent.email;
+  oldStudent.lectures = newLectures || oldStudent.lectures;
 
-  console.log(`updated student with id ${id} : ${student_}`);
+  console.log(`updated student with id ${id} : ${oldStudent}`);
 };
 
 // Funzione per ottenere la lista degli studenti
