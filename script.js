@@ -122,21 +122,13 @@ const createStudent = ({ name, lastName, email, lectures }) => {
   lastStudId = parseInt(lastStudId);
   lastStudId++;
 
-  name = normalizeName(name);
-  lastName = normalizeName(lastName);
-
-  const sampleStudent = {
+  students = [...students, {
     id: '' + lastStudId,
-    name: name,
-    lastName: lastName,
-    email: email,
-    lectures: []
-  }
-
-  sampleStudent.lectures.push(...lectures);
-
-
-  students.push(sampleStudent);
+    name: normalizeName(name),
+    lastName: normalizeName(lastName),
+    email,
+    lectures,
+  }];
 };
 
 // Funzione per collegare uno studente a un registro
