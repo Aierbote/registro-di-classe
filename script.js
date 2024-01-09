@@ -122,21 +122,13 @@ const createStudent = ({ name, lastName, email, lectures }) => {
   lastStudId = parseInt(lastStudId);
   lastStudId++;
 
-  name = normalizeName(name);
-  lastName = normalizeName(lastName);
-
-  const sampleStudent = {
+  students = [...students, {
     id: '' + lastStudId,
-    name: name,
-    lastName: lastName,
-    email: email,
-    lectures: []
-  }
-
-  sampleStudent.lectures.push(...lectures);
-
-
-  students.push(sampleStudent);
+    name: normalizeName(name),
+    lastName: normalizeName(lastName),
+    email,
+    lectures,
+  }];
 };
 
 // Funzione per collegare uno studente a un registro
@@ -159,36 +151,28 @@ const connectStudentToRegister = (studentId, classId) => {
 
 // Funzione per eliminare uno studente
 const deleteStudent = (id) => {
-  for (let i = 0; i < students.length; i++) {
-    if (students[i].id == id) {
-      console.log(`student ${students[i].id} deleted.`);
-      students.splice(i, 1);
-      return;
-    }
-  }
-  console.log(`id ${id} not found in students`);
+  students = students.filter(({ id: idStudent }) =>
+    idStudent != id
+  );
 };
 
 // Funzione per aggiornare uno studente
-const updateStudent = ({ id, name, lastName, email, lectures }) => {
-  const student_ = getStudent(id);
+const updateStudent = ({ id, name: newName, lastName: newLastName, email: newEmail, lectures: newLectures }) => {
+  const oldStudent = getStudent(id);
 
-  name = normalizeName(name);
-  lastName = normalizeName(lastName);
-
-  if (student_ == undefined) {
+  if (oldStudent == undefined) {
     console.log(`id ${id} not found in students`);;
     return;
   }
 
-  console.log(`updating student with id ${id} : ${student_}`);
+  console.log(`updating student with id ${id} : ${oldStudent}`);
 
-  student_.name = name || student_.name;
-  student_.lastName = lastName || student_.lastName;
-  student_.email = email || student_.email;
-  student_.lectures = lectures || student_.lectures;
+  oldStudent.name = normalizeName(newName) || oldStudent.name;
+  oldStudent.lastName = normalizeName(newLastName) || oldStudent.lastName;
+  oldStudent.email = newEmail || oldStudent.email;
+  oldStudent.lectures = newLectures || oldStudent.lectures;
 
-  console.log(`updated student with id ${id} : ${student_}`);
+  console.log(`updated student with id ${id} : ${oldStudent}`);
 };
 
 // Funzione per ottenere la lista degli studenti
@@ -198,14 +182,8 @@ const getStudentList = () => {
 
 // Funzione per ottenere uno specifico studente
 const getStudent = (id) => {
-  for (let i = 0; i < students.length; i++) {
-    if (students[i].id == id) {
-      console.log(`student with id ${id} found in students.`);
-      return students[i]
-    };
-  }
-  console.log(`id ${id} not found in students`);
-  return null;
+  const students = getStudentList();
+  return students.find((student) => student.id === id);
 }
 
 
