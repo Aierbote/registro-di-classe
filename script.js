@@ -165,6 +165,36 @@ const deleteStudent = (id) => {
   console.log(`id ${id} not found in students`);
 };
 
+// Funzione per aggiornare uno studente
+const updateStudent = ({ id, name: newName, lastName: newLastName, email: newEmail, lectures: newLectures }) => {
+  const oldStudent = getStudent(id);
+
+  if (!!oldStudent) {
+    const prevStudents = getStudentList();
+
+    console.log(`updating student with id ${id} : ${JSON.stringify(oldStudent)}`);
+
+    const newStudents = prevStudents.map((stud) => {
+      return (stud.id === "" + id)
+        ? {
+          id: "" + id,
+          name: normalizeName(newName) || stud.name,
+          lastName: normalizeName(newLastName) || stud.lastName,
+          email: newEmail || stud.email,
+          lectures: newLectures || stud.lectures
+        }
+        : { ...stud };
+    });
+
+    const updatedStudent = newStudents.find((stud) => stud.id === "" + id)
+    console.log(`updated student with id ${id} : ${JSON.stringify(updatedStudent)}`);
+    localStorage.setItem("students", JSON.stringify(newStudents));
+    return;
+  }
+
+  console.log(`id ${id} not found in students`);;
+};
+
 // Funzione per collegare uno studente a un registro
 const connectStudentToRegister = (studentId, classId) => {
   const register = getRegister(classId);
@@ -185,25 +215,7 @@ const connectStudentToRegister = (studentId, classId) => {
 
 
 
-// TODO : FIXME : it still doesn't have Immutability
-// Funzione per aggiornare uno studente
-const updateStudent = ({ id, name: newName, lastName: newLastName, email: newEmail, lectures: newLectures }) => {
-  const oldStudent = getStudent(id);
 
-  if (oldStudent == undefined) {
-    console.log(`id ${id} not found in students`);;
-    return;
-  }
-
-  console.log(`updating student with id ${id} : ${oldStudent}`);
-
-  oldStudent.name = normalizeName(newName) || oldStudent.name;
-  oldStudent.lastName = normalizeName(newLastName) || oldStudent.lastName;
-  oldStudent.email = newEmail || oldStudent.email;
-  oldStudent.lectures = newLectures || oldStudent.lectures;
-
-  console.log(`updated student with id ${id} : ${oldStudent}`);
-};
 
 
 // // Export delle funzioni
