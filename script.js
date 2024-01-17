@@ -1,20 +1,22 @@
+/** @format */
+
 // Array di registri e studenti
 const registers = [];
 const students = [];
 
 // ultimo id per gli elementi di Registers
-let lastRegId = "0";
+let lastRegId = '0';
 // ultimo id per gli elementi di Students
-let lastStudId = "0";
+let lastStudId = '0';
 // ultimo id per gli le attendances dentro ogni Register (univoco)
-let lastAttId = "0";
+let lastAttId = '0';
 
 // Funzione per rimuovere whitespace prima & dopo la stringa e per farne il Title Case
-const normalizeName = (string_) => {
+const normalizeName = string_ => {
   string_ = string_.trim();
   string_ = string_.charAt(0).toUpperCase() + string_.substr(1).toLowerCase();
   return string_;
-}
+};
 
 // Funzione per ottenere la lista dei registri
 const getRegisterList = () => {
@@ -22,13 +24,14 @@ const getRegisterList = () => {
 };
 
 // Funzione per ottenere uno specifico registro
-const getRegister = (id) => {
+const getRegister = id => {
   for (let i = 0; i < registers.length; i++) {
-    //fixare questo e metterlo come non strict comparison?
-    if (registers[i].id === id) { return registers[i] };
+    if (registers[i].id === id) {
+      return registers[i];
+    }
   }
   return null;
-}
+};
 
 // Funzione per creare un registro
 const createRegister = ({ name, students, votes, attendances }) => {
@@ -43,20 +46,21 @@ const createRegister = ({ name, students, votes, attendances }) => {
     name: name,
     students: [],
     votes: [],
-    attendances: []
+    attendances: [],
   };
 
   sampleRegister.students.push(...students);
   sampleRegister.votes.push(...votes);
   sampleRegister.attendances.push(...attendances);
 
-
-
   registers.push(sampleRegister);
+
+  // Chiamata alla funzione per mostrare il registro nel DOM
+  showRegisterInDOM(sampleRegister);
 };
 
 // Funzione per eliminare un registro
-const deleteRegister = (id) => {
+const deleteRegister = id => {
   for (let i = 0; i < registers.length; i++) {
     if (registers[i].id == id) {
       console.log(`register ${registers[i].id} deleted.`);
@@ -65,11 +69,10 @@ const deleteRegister = (id) => {
     }
   }
   console.log(`id ${id} not found in registers`);
-}
+};
 
 // Funzione per aggiornare un registro
 const updateRegister = ({ id, name, students, votes, attendances }) => {
-
   const register = getRegister(id);
   if (register === null) {
     console.log(`no register with id: ${id} found.`);
@@ -84,7 +87,44 @@ const updateRegister = ({ id, name, students, votes, attendances }) => {
   register.attendances = attendances || register.attendances;
 
   console.log(`updated register with id ${id} : ${register}`);
-}
+};
+
+// Funzione per mostrare un registro nel DOM
+const showRegisterInDOM = register => {
+  // Ottieni il riferimento all'elemento del DOM in cui vuoi mostrare il registro
+  const containerElement = document.getElementById('registro-container');
+
+  // Assicurati che l'elemento esista prima di procedere
+  if (!containerElement) {
+    console.error('Elemento del DOM non trovato.');
+    return;
+  }
+
+  // Crea un elemento div per rappresentare il registro
+  const registerElement = document.createElement('div');
+  registerElement.className = 'registro'; // Aggiungi eventuali classi CSS necessarie
+
+  // Aggiungi il contenuto del registro all'elemento
+  registerElement.innerHTML = `
+    <h2>${register.name}</h2>
+    <p>Numero di studenti: ${register.students.length}</p>
+    <!-- Aggiungi altri dettagli del registro secondo le tue esigenze -->
+  `;
+
+  // Aggiungi l'elemento del registro al contenitore nel DOM
+  containerElement.appendChild(registerElement);
+};
+
+// Funzione per aggiungere un registro al DOM
+const addRegisterToDOM = registerId => {
+  const register = getRegister(registerId);
+
+  if (register) {
+    showRegisterInDOM(register);
+  } else {
+    console.error(`Registro con ID ${registerId} non trovato.`);
+  }
+};
 
 // Controllare se l'arrivo non deve superare un certo valore
 // che sarebbe l'orario di uscita?
@@ -98,12 +138,12 @@ const createAttendance = ({ registerId, date, argument, attendants }) => {
     date: new Date(date), //"yyyy-MM-ddTh:m:s" This is standardized and will work reliably
     id: '' + lastAttId,
     argument: argument,
-    attendants: [] //array<{nome, arrivo, uscita}>
+    attendants: [], //array<{nome, arrivo, uscita}>
   };
 
   Attendance.attendants.push(...attendants);
   getRegister(registerId).attendances.push(Attendance);
-}
+};
 
 const deleteAttendance = ({ registerId, attendanceId }) => {
   const lessons = getRegister(registerId).attendances;
@@ -115,7 +155,7 @@ const deleteAttendance = ({ registerId, attendanceId }) => {
     }
   }
   console.log(`lesson with id: ${attendanceId} not found.`);
-}
+};
 
 // Funzione per creare uno studente
 const createStudent = ({ name, lastName, email, lectures }) => {
@@ -130,11 +170,10 @@ const createStudent = ({ name, lastName, email, lectures }) => {
     name: name,
     lastName: lastName,
     email: email,
-    lectures: []
-  }
+    lectures: [],
+  };
 
   sampleStudent.lectures.push(...lectures);
-
 
   students.push(sampleStudent);
 };
@@ -155,10 +194,10 @@ const connectStudentToRegister = (studentId, classId) => {
 
   register.students.push(student);
   console.log(`student assigned to ${register.name} successfully.`);
-}
+};
 
 // Funzione per eliminare uno studente
-const deleteStudent = (id) => {
+const deleteStudent = id => {
   for (let i = 0; i < students.length; i++) {
     if (students[i].id == id) {
       console.log(`student ${students[i].id} deleted.`);
@@ -177,7 +216,7 @@ const updateStudent = ({ id, name, lastName, email, lectures }) => {
   lastName = normalizeName(lastName);
 
   if (student_ == undefined) {
-    console.log(`id ${id} not found in students`);;
+    console.log(`id ${id} not found in students`);
     return;
   }
 
@@ -197,17 +236,16 @@ const getStudentList = () => {
 };
 
 // Funzione per ottenere uno specifico studente
-const getStudent = (id) => {
+const getStudent = id => {
   for (let i = 0; i < students.length; i++) {
     if (students[i].id == id) {
       console.log(`student with id ${id} found in students.`);
-      return students[i]
-    };
+      return students[i];
+    }
   }
   console.log(`id ${id} not found in students`);
   return null;
-}
-
+};
 
 // // Export delle funzioni
 // module.exports = {
