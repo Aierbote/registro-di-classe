@@ -105,6 +105,17 @@ const createAttendance = ({ registerId, date, argument, attendants }) => {
   getRegister(registerId).attendances.push(Attendance);
 }
 
+const deleteAttendance = ({ registerId, attendanceId }) => {
+  const lessons = getRegister(registerId).attendances;
+  for (let index = 0; index < lessons.length; index++) {
+    if (lessons[index].id === attendanceId) {
+      lessons.splice(index, 1);
+      console.log(`lesson with id: ${attendanceId} removed successfully.`);
+      return;
+    }
+  }
+  console.log(`lesson with id: ${attendanceId} not found.`);
+}
 
 // Funzione per creare uno studente
 const createStudent = ({ name, lastName, email, lectures }) => {
