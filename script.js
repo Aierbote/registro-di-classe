@@ -1,11 +1,8 @@
 // Array di registri e studenti
 const registers = [];
-const students = JSON.parse(localStorage.getItem("students")) || [];
 
 // ultimo id per gli elementi di Registers
 let lastRegId = "0";
-// ultimo id per gli elementi di Students
-let lastStudId = "" + students.length || "0";
 // ultimo id per gli le attendances dentro ogni Register (univoco)
 let lastAttId = "0";
 
@@ -117,13 +114,26 @@ const deleteAttendance = ({ registerId, attendanceId }) => {
   console.log(`lesson with id: ${attendanceId} not found.`);
 }
 
+// Funzione per ottenere la lista degli studenti
+const getStudentList = () => {
+  return JSON.parse(localStorage.getItem("students"));
+};
+
+// Funzione per ottenere uno specifico studente
+const getStudent = (id) => {
+  const students = getStudentList();
+  return students.find((student) => student.id === id);
+}
+
 // Funzione per creare uno studente
 const createStudent = ({ name, lastName, email, lectures }) => {
-  lastStudId = parseInt(lastStudId);
-  lastStudId++;
+  const prevStudents = getStudentList() || [];
 
-  const newStudents = [...students, {
-    id: '' + lastStudId,
+  const lastStudId = JSON.parse(localStorage.getItem("lastStudId")) || "0";
+  const newStudId = parseInt(lastStudId) + 1;
+
+  const newStudents = [...prevStudents, {
+    id: '' + newStudId,
     name: normalizeName(name),
     lastName: normalizeName(lastName),
     email,
@@ -133,6 +143,7 @@ const createStudent = ({ name, lastName, email, lectures }) => {
   console.log(`student ${JSON.stringify(newStudents.slice(-1)[0])} created successfully.`);
 
   localStorage.setItem("students", JSON.stringify(newStudents));
+  localStorage.setItem("lastStudId", JSON.stringify(newStudId));
 };
 
 // Funzione per collegare uno studente a un registro
@@ -180,17 +191,6 @@ const updateStudent = ({ id, name: newName, lastName: newLastName, email: newEma
 
   console.log(`updated student with id ${id} : ${oldStudent}`);
 };
-
-// Funzione per ottenere la lista degli studenti
-const getStudentList = () => {
-  return students;
-};
-
-// Funzione per ottenere uno specifico studente
-const getStudent = (id) => {
-  const students = getStudentList();
-  return students.find((student) => student.id === id);
-}
 
 
 // // Export delle funzioni
