@@ -1,11 +1,11 @@
 // Array di registri e studenti
 const registers = [];
-const students = [];
+const students = JSON.parse(localStorage.getItem("students")) || [];
 
 // ultimo id per gli elementi di Registers
 let lastRegId = "0";
 // ultimo id per gli elementi di Students
-let lastStudId = "0";
+let lastStudId = "" + students.length || "0";
 // ultimo id per gli le attendances dentro ogni Register (univoco)
 let lastAttId = "0";
 
@@ -122,13 +122,17 @@ const createStudent = ({ name, lastName, email, lectures }) => {
   lastStudId = parseInt(lastStudId);
   lastStudId++;
 
-  students = [...students, {
+  const newStudents = [...students, {
     id: '' + lastStudId,
     name: normalizeName(name),
     lastName: normalizeName(lastName),
     email,
     lectures,
   }];
+
+  console.log(`student ${JSON.stringify(newStudents.slice(-1)[0])} created successfully.`);
+
+  localStorage.setItem("students", JSON.stringify(newStudents));
 };
 
 // Funzione per collegare uno studente a un registro
@@ -156,6 +160,8 @@ const deleteStudent = (id) => {
   );
 };
 
+
+// TODO : FIXME : it still doesn't have Immutability
 // Funzione per aggiornare uno studente
 const updateStudent = ({ id, name: newName, lastName: newLastName, email: newEmail, lectures: newLectures }) => {
   const oldStudent = getStudent(id);
