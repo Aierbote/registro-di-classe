@@ -122,7 +122,9 @@ const getStudentList = () => {
 // Funzione per ottenere uno specifico studente
 const getStudent = (id) => {
   const students = getStudentList();
-  return students.find((student) => student.id === id);
+  const studentFound = students.find((student) => student.id === "" + id);
+
+  return studentFound;
 }
 
 // Funzione per creare uno studente
@@ -146,6 +148,23 @@ const createStudent = ({ name, lastName, email, lectures }) => {
   localStorage.setItem("lastStudId", JSON.stringify(newStudId));
 };
 
+// Funzione per eliminare uno studente
+const deleteStudent = (id) => {
+  const foundStudent = getStudent(id);
+
+  if (!!foundStudent) {
+    const prevStudents = getStudentList() || [];
+    const newStudents = prevStudents.filter(({ id: idStudent }) =>
+      idStudent !== "" + id
+    );
+
+    console.log(`student ${JSON.stringify(foundStudent)} deleted.`);
+    localStorage.setItem("students", JSON.stringify(newStudents));
+    return;
+  }
+  console.log(`id ${id} not found in students`);
+};
+
 // Funzione per collegare uno studente a un registro
 const connectStudentToRegister = (studentId, classId) => {
   const register = getRegister(classId);
@@ -164,12 +183,6 @@ const connectStudentToRegister = (studentId, classId) => {
   console.log(`student assigned to ${register.name} successfully.`);
 }
 
-// Funzione per eliminare uno studente
-const deleteStudent = (id) => {
-  students = students.filter(({ id: idStudent }) =>
-    idStudent != id
-  );
-};
 
 
 // TODO : FIXME : it still doesn't have Immutability
