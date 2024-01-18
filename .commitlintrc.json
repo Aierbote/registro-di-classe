@@ -3,7 +3,7 @@
     "rules": {
         "header-max-length": [2, "always", 100],
         "type-enum": [2, "always", ["chore", "docs", "feat", "fix", "refactor"]],
-        "scope-enum": [2, "always", ["html", "css", "business-logic", "info", "personal"]
+        "scope-enum": [2, "always", ["html", "css", "js", "info", "personal"]
         ]
     }
 }
