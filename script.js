@@ -153,7 +153,7 @@ const deleteStudent = (id) => {
   const foundStudent = getStudent(id);
 
   if (!!foundStudent) {
-    const prevStudents = getStudentList() || [];
+    const prevStudents = getStudentList();
     const newStudents = prevStudents.filter(({ id: idStudent }) =>
       idStudent !== "" + id
     );
