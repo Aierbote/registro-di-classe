@@ -138,6 +138,20 @@ const deleteAttendance = ({ registerId, attendanceId }) => {
   console.log(`lesson with id: ${attendanceId} not found.`);
 }
 
+//spicy zone: codice molto spicy ahead
+const addAttendee = ({registerId, AttendanceId, studentId, entry, departure}) => {
+  let oldAttendants = getAttendance(registerId, AttendanceId).attendants;
+
+  getAttendance(registerId, AttendanceId).attendants = [...oldAttendants, {
+    //mettiamo uno studente o solo il suo id?
+    studentId,
+    //mettiamo una Date() o una semplice stringa?
+    //se stringa allora occorre validation sempre in HTML
+    arrivo: entry || null,
+    uscita: departure || null,
+  }];
+}
+
 // Funzione per creare uno studente
 const createStudent = ({ name, lastName, email, lectures }) => {
   lastStudId = parseInt(lastStudId);
