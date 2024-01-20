@@ -120,6 +120,12 @@ const createAttendance = (
   getRegister(registerId).attendances = newAttendances;
 }
 
+const getAttendance = (registerId, attendanceId) => {
+  const register = getRegister(registerId);
+  return register.attendances
+  .find(attendance => attendance.id === attendanceId)
+};
+
 const deleteAttendance = ({ registerId, attendanceId }) => {
   const lessons = getRegister(registerId).attendances;
   for (let index = 0; index < lessons.length; index++) {
