@@ -159,6 +159,23 @@ const deleteAttendee = ({registerId, AttendanceId, studentId}) => {
   .filter(attendant => attendant.studentId !== studentId);
 }
 
+const updateAttendee = ({registerId, AttendanceId, studentId, entry, departure}) => {
+  let oldAttendants = getAttendance(registerId, AttendanceId).attendants;
+
+  getAttendance(registerId, AttendanceId).attendants = oldAttendants
+  .map(attendant => {
+    if (attendant.studentId === studentId){
+      return {
+        studentId,
+        entry: entry || null,
+        departure: departure || null
+      }
+    } else {
+      return attendant
+    }
+  });
+}
+
 // Funzione per creare uno studente
 const createStudent = ({ name, lastName, email, lectures }) => {
   lastStudId = parseInt(lastStudId);
