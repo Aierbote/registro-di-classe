@@ -23,3 +23,10 @@ let TAttendance = {
   argoument: '',
   students: []//array<{nome, arrivo, uscita}>
 };
+
+let TVote = {
+  id: '',
+  date: new Date(),
+  vote: '',
+  lesson: attendanceId
+}
