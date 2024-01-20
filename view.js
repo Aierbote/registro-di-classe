@@ -7,7 +7,7 @@ const notImplemented = () => {
 
 // inserire le manipolazioni del dom qui dentro
 document.addEventListener('DOMContentLoaded', function () {
-  var goToStudentsList = document.querySelector('.ElencoStudenti');
+  var goToStudentsList = document.querySelector('#ElencoStudenti');
   var goToLectures = document.querySelector('.BottoneMostraLezioni');
   var deleteRegister = document.querySelector('.EliminaRegistro');
 
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // NOTE : questo funzionava solo sul testo, ora sul div arrotondato. MAYBE deve essere rifinito
   if (goToStudentsList) {
-    goToStudentsList.parentNode.parentNode.addEventListener('click', notImplemented);
+    goToStudentsList.addEventListener('click', notImplemented);
   }
 
   if (goToLectures) {
