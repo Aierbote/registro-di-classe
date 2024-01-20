@@ -89,21 +89,42 @@ const updateRegister = ({ id, name, students, votes, attendances }) => {
 // Controllare se l'arrivo non deve superare un certo valore
 // che sarebbe l'orario di uscita?
 // poi si dovrebbe anche controllare che non ci siano due lezioni con lo stesso timestamp
-const createAttendance = ({ registerId, date, argument, attendants }) => {
+const createAttendance = (
+  { registerId,
+    year,
+    month,
+    day,
+    argument
+  }) => {
+
+  //questo deve prendere l'id dal localstorage
   lastAttId = parseInt(lastAttId);
   lastAttId++;
 
-  //attendance dovrebbe avere anche un id, cosi possiamo avere anche presenze sdoppiate
-  const Attendance = {
-    date: new Date(date), //"yyyy-MM-ddTh:m:s" This is standardized and will work reliably
-    id: '' + lastAttId,
-    argument: argument,
-    attendants: [] //array<{nome, arrivo, uscita}>
-  };
+  //proposta: eseguire la validazione del mese su HTML
 
-  Attendance.attendants.push(...attendants);
-  getRegister(registerId).attendances.push(Attendance);
+  //console.table([{'year': year, 'month': month, 'day': day}]);
+  const date = `${year}-${month}-${day}`;
+  let oldAttendances = getRegister(registerId).attendances;
+
+  let newAttendance = {
+    id: '' + lastAttId,
+    date: new Date(date), 
+    argument: argument,
+    attendants: [],
+  }
+
+  const newAttendances = [...oldAttendances, newAttendance];
+
+  //le nuove attendances devono essere inserite nel localStorage
+  getRegister(registerId).attendances = newAttendances;
 }
+
+const getAttendance = (registerId, attendanceId) => {
+  const register = getRegister(registerId);
+  return register.attendances
+  .find(attendance => attendance.id === attendanceId)
+};
 
 const deleteAttendance = ({ registerId, attendanceId }) => {
   const lessons = getRegister(registerId).attendances;
@@ -115,6 +136,44 @@ const deleteAttendance = ({ registerId, attendanceId }) => {
     }
   }
   console.log(`lesson with id: ${attendanceId} not found.`);
+}
+
+//spicy zone: codice molto spicy ahead
+const addAttendee = ({registerId, AttendanceId, studentId, entry, departure}) => {
+  let oldAttendants = getAttendance(registerId, AttendanceId).attendants;
+
+  getAttendance(registerId, AttendanceId).attendants = [...oldAttendants, {
+    //mettiamo uno studente o solo il suo id?
+    studentId,
+    //mettiamo una Date() o una semplice stringa?
+    //se stringa allora occorre validation sempre in HTML
+    arrivo: entry || null,
+    uscita: departure || null,
+  }];
+}
+
+const deleteAttendee = ({registerId, AttendanceId, studentId}) => {
+  let oldAttendants = getAttendance(registerId, AttendanceId).attendants;
+
+  getAttendance(registerId, AttendanceId).attendants = oldAttendants
+  .filter(attendant => attendant.studentId !== studentId);
+}
+
+const updateAttendee = ({registerId, AttendanceId, studentId, entry, departure}) => {
+  let oldAttendants = getAttendance(registerId, AttendanceId).attendants;
+
+  getAttendance(registerId, AttendanceId).attendants = oldAttendants
+  .map(attendant => {
+    if (attendant.studentId === studentId){
+      return {
+        studentId,
+        entry: entry || null,
+        departure: departure || null
+      }
+    } else {
+      return attendant
+    }
+  });
 }
 
 // Funzione per creare uno studente
