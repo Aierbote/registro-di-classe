@@ -2,7 +2,6 @@
 
 // Array di registri e studenti
 const registers = [];
-const students = [];
 
 // ultimo id per gli elementi di Registers
 let lastRegId = '0';
@@ -262,3 +261,5 @@ const getStudent = id => {
 //   getRegister,
 //   getStudent
 // };
+
+export { registers };

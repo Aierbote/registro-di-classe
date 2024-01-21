@@ -57,9 +57,15 @@ let TStudent = {
 // JavaScript equivalent for TAttendance interface
 let TAttendance = {
   id: '',
-  date: new Date(),
-  argument: '',
-  students: [], // array of objects {name, arrival, departure}
+  Date: new Date('yyyy-mm-dd'),
+  topic: '',
+  attendees: [
+    {
+      studentId: '',
+      ingress: 'hh:mm',
+      exit: 'hh:mm',
+    },
+  ],
 };
 ```
 

@@ -1,4 +1,5 @@
 // File per modificare il Prensentation Layer (aka aggire sull' HTML modificando il DOM)
+import { registers } from "./script.js";
 
 const notImplemented = () => {
   alert("Not Implemented Yet");
