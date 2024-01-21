@@ -1,12 +1,23 @@
 <!-- @format -->
+
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portale Scuola</title>
 
     <!-- stylesheets -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="registri.css" />
 
     <!-- scripts -->
@@ -16,48 +27,49 @@
       crossorigin="anonymous"
     ></script>
     <script src="script.js"></script>
-    <script type="module" src="view.js" defer></script>
+    <script src="view.js" defer></script>
   </head>
   <body>
     <header>
-      <nav class="Nav">
+      <nav class="Nav navbar">
         <h1 class="PortaleScuola">Portale Scuola</h1>
       </nav>
     </header>
 
-    <main class="Main">
-      <aside class="ListaRegistri">
-        <h3 class="TuttiIRegistri">Tutti i registri</h3>
-        <ul class="Lista">
-          <li class="Materia">
-            <button class="TitoloMateria">
-              <h4 class="Chimica">Chimica</h4>
-            </button>
-          </li>
-          <li class="Materia">
-            <button class="TitoloMateria">
-              <h4 class="aggiungi">+</h4>
-            </button>
-          </li>
-        </ul>
-      </aside>
-      <section id="registro-container" class="VisualeLezione">
-        <h2 class="TitoloMateria">Chimica</h2>
-        <div class="OpzioniMateria">
-          <button class="BottoneElencaStudenti">
-            <a href="elenco.html">Elenco studenti</a>
-          </button>
+    <div class="container-fluid d-flex flex-grow-1">
+      <div class="row d-flex flex-row flex-grow-1">
+        <div class="col d-flex">
+          <main class="Main d-flex flex-grow-1">
+            <div class="container-fluid container-xs d-flex">
+              <div class="row d-flex flex-row flex-grow-1">
+                <div class="col-md-3 d-flex flex-grow-1">
+                  <aside class="ListaRegistri d-flex flex-column flex-grow-1">
+                    <h3 class="TuttiIRegistri">Tutti i registri</h3>
+                    <ul class="Lista flex-grow-1">
+                      <li class="Materia">
+                        <button class="TitoloMateria">
+                          <h4 class="Chimica">Chimica</h4>
+                        </button>
+                      </li>
+                      <li class="Materia">
+                        <button class="TitoloMateria">
+                          <h4 class="aggiungi">+</h4>
+                        </button>
+                      </li>
+                    </ul>
+                  </aside>
+                </div>
 
                 <div class="col-md-7 d-flex flex-column flex-grow-1">
                   <section class="VisualeLezione d-flex flex-column flex-grow-1">
                     <h2 class="TitoloMateria">Chimica</h2>
                     <div class="OpzioniMateria">
-                      <button class="btn btn-primary BottoneElencaStudenti">
-                        Elenco studenti
+                      <button class="BottoneElencaStudenti">
+                        <a href="elenco.html">Elenco studenti</a>
                       </button>
 
-                      <button class="btn btn-primary BottoneMostraLezioni">
-                        Lezioni
+                      <button class="BottoneMostraLezioni">
+                        <a class="Lezioni">Lezioni</a>
                       </button>
                     </div>
 
@@ -83,19 +95,14 @@
 
         <!-- Aggiunta della sezione per mostrare i registri -->
         <div id="registro-container" class="RegistroContainer">
-          <!-- Qui verranno aggiunti dinamicamente i registri -->
+        <!-- Qui verranno aggiunti dinamicamente i registri -->
         </div>
       </section>
-      <aside class="MenuEdita">
-        <h3 class="Edita">edita</h3>
 
-        <ul class="Lista">
-          <li class="Opzione">
-            <button class="EliminaRegistro">elimina registro</button>
-          </li>
-        </ul>
-      </aside>
-    </main>
-    <div class="Footer"></div>
+    <div class="container-fluid">
+      <div class="row">
+        <footer class="Footer"></footer>
+      </div>
+    </div>
   </body>
 </html>
