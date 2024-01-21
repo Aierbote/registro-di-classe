@@ -1,8 +1,3 @@
-// Array di registri e studenti
-const registers = [];
-
-// ultimo id per gli elementi di Registers
-let lastRegId = "0";
 // ultimo id per gli le attendances dentro ogni Register (univoco)
 let lastAttId = "0";
 
@@ -13,74 +8,83 @@ const normalizeName = (string_) => {
   return string_;
 }
 
-// Funzione per ottenere la lista dei registri
 const getRegisterList = () => {
-  return registers;
+  return JSON.parse(localStorage.getItem("registers"));
 };
 
-// Funzione per ottenere uno specifico registro
 const getRegister = (id) => {
-  for (let i = 0; i < registers.length; i++) {
-    //fixare questo e metterlo come non strict comparison?
-    if (registers[i].id === id) { return registers[i] };
-  }
-  return null;
+  const registers = getRegisterList();
+  const registerFound = registers.find((register) => register.id === "" + id);
+
+  return registerFound;
 }
 
 // Funzione per creare un registro
 const createRegister = ({ name, students, votes, attendances }) => {
-  lastRegId = parseInt(lastRegId);
-  lastRegId++;
+  const prevRegisters = getRegisterList() || [];
 
-  name = normalizeName(name);
+  const lastRegId = JSON.parse(localStorage.getItem("lastRegId")) || "0";
+  const newRegId = parseInt(lastRegId) + 1;
 
-  // Implementa la logica per creare un registro
-  const sampleRegister = {
-    id: '' + lastRegId,
-    name: name,
-    students: [],
-    votes: [],
-    attendances: []
-  };
+  const newRegisters = [...prevRegisters, {
+    id: '' + newRegId,
+    name,
+    students: students || [],
+    votes: votes || [],
+    attendances: attendances || []
+  }];
 
-  sampleRegister.students.push(...students);
-  sampleRegister.votes.push(...votes);
-  sampleRegister.attendances.push(...attendances);
+  console.log(`register ${JSON.stringify(newRegisters.slice(-1)[0])} created successfully.`);
 
-
-
-  registers.push(sampleRegister);
+  localStorage.setItem("registers", JSON.stringify(newRegisters));
+  localStorage.setItem("lastRegId", JSON.stringify(newRegId));
 };
 
 // Funzione per eliminare un registro
 const deleteRegister = (id) => {
-  for (let i = 0; i < registers.length; i++) {
-    if (registers[i].id == id) {
-      console.log(`register ${registers[i].id} deleted.`);
-      registers.splice(i, 1);
-      return;
-    }
+  const foundRegister = getRegister(id);
+
+  if (!!foundRegister) {
+    const prevRegisters = getRegisterList();
+    const newRegisters = prevRegisters.filter(({ id: idRegister }) =>
+      idRegister !== "" + id
+    );
+
+    console.log(`register ${JSON.stringify(foundRegister)} deleted.`);
+    localStorage.setItem("registers", JSON.stringify(newRegisters));
+    return;
   }
   console.log(`id ${id} not found in registers`);
 }
 
 // Funzione per aggiornare un registro
 const updateRegister = ({ id, name, students, votes, attendances }) => {
+  const oldRegister = getRegister(id);
 
-  const register = getRegister(id);
-  if (register === null) {
-    console.log(`no register with id: ${id} found.`);
+  if (!!oldRegister) {
+    const prevRegisters = getRegisterList();
+
+    console.log(`updating register with id ${id} : ${JSON.stringify(oldRegister)}`);
+
+    const newRegisters = prevRegisters.map((register) => {
+      return (register.id === "" + id)
+        ? {
+          id: "" + id,
+          name: name || register.name,
+          students: students || register.students,
+          votes: votes || register.votes,
+          attendances: attendances || register.attendances
+        }
+        : { ...register };
+    });
+
+    const updatedRegister = newRegisters.find((stud) => stud.id === "" + id)
+    console.log(`updated register with id ${id} : ${JSON.stringify(updatedRegister)}`);
+    localStorage.setItem("registers", JSON.stringify(newRegisters));
     return;
   }
 
-  name = normalizeName(name);
-
-  register.name = name || register.name;
-  register.students = students || register.students;
-  register.votes = votes || register.votes;
-  register.attendances = attendances || register.attendances;
-
-  console.log(`updated register with id ${id} : ${register}`);
+  console.log(`id ${id} not found in registers`);
 }
 
 // Controllare se l'arrivo non deve superare un certo valore
@@ -192,7 +196,7 @@ const updateStudent = ({ id, name: newName, lastName: newLastName, email: newEma
     return;
   }
 
-  console.log(`id ${id} not found in students`);;
+  console.log(`id ${id} not found in students`);
 };
 
 // Funzione per collegare uno studente a un registro
