@@ -5,6 +5,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portale Scuola</title>
 
     <!-- stylesheets -->
@@ -24,7 +27,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="script.js"></script>
-    <script type="module" src="view.js" defer></script>
+    <script src="view.js" defer></script>
   </head>
   <body>
     <header>
@@ -61,12 +64,12 @@
                   <section class="VisualeLezione d-flex flex-column flex-grow-1">
                     <h2 class="TitoloMateria">Chimica</h2>
                     <div class="OpzioniMateria">
-                      <button class="btn btn-primary BottoneElencaStudenti">
-                        Elenco studenti
+                      <button class="BottoneElencaStudenti">
+                        <a href="elenco.html">Elenco studenti</a>
                       </button>
 
-                      <button class="btn btn-primary BottoneMostraLezioni">
-                        Lezioni
+                      <button class="BottoneMostraLezioni">
+                        <a class="Lezioni">Lezioni</a>
                       </button>
                     </div>
 
@@ -89,8 +92,12 @@
             </div>
           </main>
         </div>
-      </div>
-    </div>
+
+        <!-- Aggiunta della sezione per mostrare i registri -->
+        <div id="registro-container" class="RegistroContainer">
+        <!-- Qui verranno aggiunti dinamicamente i registri -->
+        </div>
+      </section>
 
     <div class="container-fluid">
       <div class="row">
