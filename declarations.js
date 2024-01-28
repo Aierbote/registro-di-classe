@@ -27,6 +27,7 @@ let TAttendance = {
 let TVote = {
   id: '',
   date: new Date(),
+  student: studentId,
   vote: '',
   lesson: attendanceId
 }
